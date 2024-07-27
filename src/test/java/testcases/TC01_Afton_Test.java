@@ -98,9 +98,14 @@ public class TC01_Afton_Test extends BaseClass {
        
        driver.navigate().refresh();
        
-      
        
-       
+       //show and hidden password Functionality
+       a.username_1(id);
+       a.password_1(pass);
+       a.ShowHiddenPassword_click();
+       a.ShowHiddenPassword();
+       a.ShowHiddenPassword_click();
+       a.ShowHiddenPassword();
        
        softAssert.assertAll();
     }

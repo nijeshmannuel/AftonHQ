@@ -25,8 +25,9 @@ public class Page01_afton_login {
     private By usernamevalidationMessage = By.xpath("//small[normalize-space()='Username is required!']");
     private By SpaceFieldValidationMessage = By.xpath("//div[text()='The password field is required.']");
     private By usernameSpaceFieldValidationMessage = By.xpath("//small[text()='Username must be a valid email!']");
+    private By ShowHiddenPassword = By.xpath("(//button[@class=\"btn btn-link\"])[1]");
+    private By ShowHiddenPassword_inputfield = By.xpath("//input[@placeholder='Password']");
     
-    private By ShowHiddenPassword = By.xpath("");
     
     public Page01_afton_login(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -132,6 +133,34 @@ public String username_SpaceFieldValidationMessage_1() {
     return requiredValidationMessage_14.getText();
 	
 }
+
+public void ShowHiddenPassword_click() {
+	
+	WebElement password1 = driver.findElement(ShowHiddenPassword);
+	password1.click();
+	
+}
+	
+public void ShowHiddenPassword() {
+	
+WebElement password2 = driver.findElement(ShowHiddenPassword_inputfield);
+System.out.println(password2.getAttribute("type"));
+
+if (password2.getAttribute("type").equals("password")){
+	    
+		System.out.println("Password is Hidden Funtionality is working Fine");
+		
+	}else {
+		
+
+		System.out.println("Password is Shown Funtionality is working Fine");
+	}
+} 
+	
+	
+
+	
+
 
 
 
