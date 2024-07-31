@@ -64,7 +64,7 @@ public class TC01_Afton_Test extends BaseClass {
         
         driver.navigate().refresh();
         
-       //No Username with Valid Password
+       //No Username with Valid Passwordc
         a.password_1(pass);
         a.clickSignInButton();
         String requiredValidationMessage_13 = a.UsernameRequiredValidation();
@@ -106,6 +106,21 @@ public class TC01_Afton_Test extends BaseClass {
        a.ShowHiddenPassword();
        a.ShowHiddenPassword_click();
        a.ShowHiddenPassword();
+      
+       
+       //Click and validate Help Center Page
+       a.HelpDeskLoginPage_click();
+       a.HelpDeskLoginPageSwitch();
+       String requiredValidationpage_1 = a.validatepage();
+       softAssert.assertEquals(requiredValidationpage_1, "https://help.aftontickets.com/", "Help Center URL is Different");
+      
+       //Click and validate Customer Page
+       a.SwitchToLoginPage();
+       a.AttendeeLoginPage_click();
+       a.SwitchToAttendee();
+       String AttendeeLoginPage = a.validatepage();
+       softAssert.assertEquals(AttendeeLoginPage, "https://stagingqa-demov3.aftontickets.com/login", "Attendee URL is Different");
+       
        
        softAssert.assertAll();
     }

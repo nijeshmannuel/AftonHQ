@@ -1,10 +1,13 @@
 package pages;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,6 +30,8 @@ public class Page01_afton_login {
     private By usernameSpaceFieldValidationMessage = By.xpath("//small[text()='Username must be a valid email!']");
     private By ShowHiddenPassword = By.xpath("(//button[@class=\"btn btn-link\"])[1]");
     private By ShowHiddenPassword_inputfield = By.xpath("//input[@placeholder='Password']");
+    private By HelpDeskLoginPageClick = By.xpath("//a[normalize-space()='Help Center']");
+    private By AttendeeLoginPage = By.xpath("//a[text()='Click Here']");
     
     
     public Page01_afton_login(WebDriver driver, WebDriverWait wait) {
@@ -158,10 +163,53 @@ if (password2.getAttribute("type").equals("password")){
 } 
 	
 	
-
+public void HelpDeskLoginPage_click() {
 	
+	WebElement HelpDesk = driver.findElement(HelpDeskLoginPageClick);
+	HelpDesk.click();
+	
+}
+
+public void HelpDeskLoginPageSwitch() {
+	
+	ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    driver.switchTo().window(tabs.get(1));
+   
+    
+}
+	
+public String validatepage() {
+	
+	String URL = driver.getCurrentUrl();
+	return URL;
+	
+	
+}
+
+public void SwitchToLoginPage() {
+	
+	ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    driver.switchTo().window(tabs.get(0));
+   
+    
+}
 
 
+public void AttendeeLoginPage_click() {
+	
+	WebElement password1 = driver.findElement(AttendeeLoginPage);
+	password1.click();
+	
+}
+
+
+public void SwitchToAttendee() {
+	
+	ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    driver.switchTo().window(tabs.get(2));
+   
+    
+}
 
 
 }
