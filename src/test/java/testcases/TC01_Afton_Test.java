@@ -3,7 +3,9 @@ package testcases;
 import org.testng.annotations.Test;
 import basepackage.BaseClass;
 import pages.Page01_afton_login;
+import pages.Page02_Account_Home_Page;
 
+import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 import org.testng.asserts.SoftAssert;
 import org.testng.Assert;
@@ -18,8 +20,9 @@ public class TC01_Afton_Test extends BaseClass {
     String Invalid_id = "quintet@gmail.com";
 
     Page01_afton_login a;
+    Page02_Account_Home_Page b;
 
-    @Test(priority = 1)
+    @Test(priority = 0)
     public void afton_login_id_pass() {
 
     	  SoftAssert softAssert = new SoftAssert();
@@ -124,11 +127,113 @@ public class TC01_Afton_Test extends BaseClass {
        
        softAssert.assertAll();
     }
+    
+    
+    @Test(priority = 1)
+    public void Account_Home_Page_SideMenu() {
+    	SoftAssert softAssert = new SoftAssert();
+    	
+    	//Validate LIveStream Page Validation
+    	a.SwitchToLoginPage(); 
+    	a.username_1(id);
+        a.password_1(pass);
+        a.clickSignInButton();
+        b.LiveStreamEvents_1();
+        String LiveStreamUrlValidation = a.validatepage();
+        softAssert.assertEquals(LiveStreamUrlValidation, "https://stagingqa-demo.aftontickets.com/client/broadcast", "LIve Stream URL is Different");
+        
+        
+        driver. navigate().back();
+        
+        //Validate Entire SideMenu | Click & Validate Page
+        
+        //SideMenu - BoxOffice
+        b.BoxOfficeSideMenu_Cick();
+        String BoxOfficeSideMenu_Click11 = a.validatepage();
+        softAssert.assertEquals(BoxOfficeSideMenu_Click11, "https://stagingqa-demo.aftontickets.com/client/boxoffice", "Box Office URL is Different");
+        driver. navigate().back();
+        
+        //SideMenu - Marketing Tools
+        b.MarketingToolsSideMenu_Cick();
+        String MarketingToolsSideMenu_Cick11 = a.validatepage();
+        softAssert.assertEquals(MarketingToolsSideMenu_Cick11, "https://stagingqa-demo.aftontickets.com/client/app/reward-program", "Marketing Tools URL is Different");
+        driver. navigate().back();
+        
+        //SideMenu - Reports
+        b.ReportSideMenu_Cick();
+        String ReportSideMenu_Cick11 = a.validatepage();
+        softAssert.assertEquals(ReportSideMenu_Cick11, "https://stagingqa-demo.aftontickets.com/client/reports", "Reports URL is Different");
+        driver. navigate().back();
+        
+        //SideMenu - Custom Reports
+        b.CustomReportsSideMenu_Cick();
+        String CustomReportsSideMenu_Cick11 = a.validatepage();
+        softAssert.assertEquals(CustomReportsSideMenu_Cick11, "https://stagingqa-demo.aftontickets.com/client/v2/reports/pre-built", "Custom Report URL is Different");
+        driver. navigate().back();
+        
+        
+        //SideMenu - Purchase
+        b.PurchasesSideMenu_click();
+        String PurchasesSideMenu_click11 = a.validatepage();
+        softAssert.assertEquals(PurchasesSideMenu_click11, "https://stagingqa-demo.aftontickets.com/client/purchases/index", "Purchase URL is Different");
+        driver. navigate().back();
+        
+        //SideMenu - contact Customers
+        b.ContactCustomersSideMenu_click();
+        String ContactCustomersSideMenu_click11 = a.validatepage();
+        softAssert.assertEquals(ContactCustomersSideMenu_click11, "https://stagingqa-demo.aftontickets.com/client/tools/audience", "Contact Customers URL is Different");
+        driver. navigate().back();
+        
+        //sideMenu - contact Us
+        b.ContactUsSideMenu_click();
+        String ContactUsSideMenu_click11 = a.validatepage();
+        softAssert.assertEquals(ContactUsSideMenu_click11, "https://stagingqa-demo.aftontickets.com/client/tools/support", "Contact Us URL is Different");
+        driver. navigate().back();
+        
+     // Sign out
+        a.sign_out_buttoninfo_1();
+        a.logout_button_1();
+        a.logout_button_popup_1();
+        
+        driver.close();
+        
+        softAssert.assertAll();
+    }
+    
+    @Test(priority = 2)
+    public void Account_Home_Page_SideMenu_collapse_Expand() throws InterruptedException {
+    	SoftAssert softAssert = new SoftAssert();
+    	
+    	//Sign into afton Account
+    	a.username_1(id);
+        a.password_1(pass);
+        a.clickSignInButton();
+    	
+        
+        //Validate Expand & Collapse
+    	b.CollapseExpandClick();
+    	
+    	 Thread.sleep(2000);
+    	
+    	b.CollapseExpandClick();
+    	b.CollapseExpandClick();
+    	
+    	
+        
+       
+        
+        
+        
+        softAssert.assertAll();
+    }
 
     @BeforeTest
     public void beforeTest() {
         browserInitialization("https://stagingqa-demo.aftontickets.com/client/v2/auth/login");
         a = new Page01_afton_login(driver, wait);
+        b = new Page02_Account_Home_Page(driver, wait);
+       
+       
     }
 
     @AfterTest

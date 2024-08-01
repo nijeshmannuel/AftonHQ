@@ -5,9 +5,9 @@
     <classes>
       <class name="testcases.TC01_Afton_Test">
         <methods>
-          <include name="afton_login_id_pass"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
+          <include name="Account_Home_Page_SideMenu_collapse_Expand"/>
         </methods>
       </class> <!-- testcases.TC01_Afton_Test -->
     </classes>

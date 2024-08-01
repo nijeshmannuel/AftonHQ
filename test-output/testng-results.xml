@@ -1,61 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-31T11:24:02 GMT-07:00" name="Default suite" finished-at="2024-07-31T11:24:22 GMT-07:00" duration-ms="19883">
+  <suite started-at="2024-08-01T05:47:32 GMT-07:00" name="Default suite" finished-at="2024-08-01T05:47:50 GMT-07:00" duration-ms="18066">
     <groups>
     </groups>
-    <test started-at="2024-07-31T11:24:02 GMT-07:00" name="Default test" finished-at="2024-07-31T11:24:22 GMT-07:00" duration-ms="19883">
+    <test started-at="2024-08-01T05:47:32 GMT-07:00" name="Default test" finished-at="2024-08-01T05:47:50 GMT-07:00" duration-ms="18066">
       <class name="testcases.TC01_Afton_Test">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:testcases.TC01_Afton_Test@71a8adcf]" started-at="2024-07-31T11:24:02 GMT-07:00" name="beforeTest" finished-at="2024-07-31T11:24:05 GMT-07:00" duration-ms="2758" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:testcases.TC01_Afton_Test@52af26ee]" started-at="2024-08-01T05:47:32 GMT-07:00" name="beforeTest" finished-at="2024-08-01T05:47:45 GMT-07:00" duration-ms="13289" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="afton_login_id_pass()[pri:1, instance:testcases.TC01_Afton_Test@71a8adcf]" started-at="2024-07-31T11:24:05 GMT-07:00" name="afton_login_id_pass" finished-at="2024-07-31T11:24:22 GMT-07:00" duration-ms="17078" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[The following asserts failed:
-Attendee URL is Different expected [hhttps://stagingqa-demov3.aftontickets.com/login] but found [https://stagingqa-demov3.aftontickets.com/login]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The following asserts failed:
-Attendee URL is Different expected [hhttps://stagingqa-demov3.aftontickets.com/login] but found [https://stagingqa-demov3.aftontickets.com/login]
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at testcases.TC01_Afton_Test.afton_login_id_pass(TC01_Afton_Test.java:125)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="Account_Home_Page_SideMenu_collapse_Expand()[pri:2, instance:testcases.TC01_Afton_Test@52af26ee]" started-at="2024-08-01T05:47:45 GMT-07:00" name="Account_Home_Page_SideMenu_collapse_Expand" finished-at="2024-08-01T05:47:50 GMT-07:00" duration-ms="4724" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afton_login_id_pass -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:testcases.TC01_Afton_Test@71a8adcf]" started-at="2024-07-31T11:24:22 GMT-07:00" name="afterTest" finished-at="2024-07-31T11:24:22 GMT-07:00" duration-ms="0" status="PASS">
+        </test-method> <!-- Account_Home_Page_SideMenu_collapse_Expand -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:testcases.TC01_Afton_Test@52af26ee]" started-at="2024-08-01T05:47:50 GMT-07:00" name="afterTest" finished-at="2024-08-01T05:47:50 GMT-07:00" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
