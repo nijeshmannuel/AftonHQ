@@ -34,6 +34,8 @@ public class Page01_afton_login {
     private By AttendeeLoginPage = By.xpath("//a[text()='Click Here']");
     
     
+    
+    
     public Page01_afton_login(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -210,8 +212,6 @@ public void SwitchToAttendee() {
    
     
 }
-
-
 
 
 }

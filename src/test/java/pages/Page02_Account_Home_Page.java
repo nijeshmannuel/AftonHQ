@@ -1,8 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Page02_Account_Home_Page {
@@ -21,9 +23,13 @@ public class Page02_Account_Home_Page {
     private By ContactUsSideMenu = By.xpath("//em[normalize-space()='Contact Us']");
     
     private By CollapseExpandClick1 = By.xpath("//div[@role='presentation']");
-    private By CollapseExpandValidation = By.xpath("//div[@id='root']//");
+    private By CollapseExpandValidation = By.xpath("(//div[@id='root']//div)[1]");
     
     
+    //Collapse Side Menu
+    private By BoxOfficeSideMenuCollapse = By.xpath("//a[@href='https://stagingqa-demo.aftontickets.com/client/boxoffice']//div[@class='sidebar__list-svg']//*[name()='svg']");
+    private By MarketingToolsSideMenuCollapse = By.xpath("//a[@href='https://stagingqa-demo.aftontickets.com/client/app/reward-program']//div[@class='sidebar__list-svg']//*[name()='svg']");
+    private By ReportsSideMenuCollapse = By.xpath("//a[@href='https://stagingqa-demo.aftontickets.com/client/reports']//div[@class='sidebar__list-svg']//*[name()='svg']");
     
     public Page02_Account_Home_Page(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -105,11 +111,54 @@ public class Page02_Account_Home_Page {
        CollapseExpand_Click11.click();
 	}
    
+  public void ExpandCollapseValidate_1() {
+		
+	  WebElement sidemenu = driver.findElement(CollapseExpandValidation);
+	  //System.out.println(sidemenu.getAttribute("class"));
+
+	 if (sidemenu.getAttribute("class").equals("global-container nav-collapsed")) {
+	  	    
+	  		System.out.println("SideMenu is Collapsed");
+	  		
+	  	}else {
+
+	  		System.out.println("SideMenu is Expanded");
+	  	}
+	  } 
   
+  public void BoxOfficeSideMenuCollapse_Cick() {
+  	
+      
+      JavascriptExecutor js = (JavascriptExecutor) driver;
+      WebElement element = driver.findElement(BoxOfficeSideMenuCollapse);
+      js.executeScript("arguments[0].scrollIntoView(true);", element);
+      WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(BoxOfficeSideMenuCollapse));
+      modalElement.click();
+	
+ }
+  
+  public void MarketingToolsSideMenuCollapse_Cick() {
+	   	
+	  JavascriptExecutor js = (JavascriptExecutor) driver;
+      WebElement element = driver.findElement(MarketingToolsSideMenuCollapse);
+      js.executeScript("arguments[0].scrollIntoView(true);", element);
+      WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(MarketingToolsSideMenuCollapse));
+      modalElement.click();
+ }
+  
+  public void ReportSideMenuCollapse_Cick() {
+	   	
+	  JavascriptExecutor js = (JavascriptExecutor) driver;
+      WebElement element = driver.findElement(ReportsSideMenuCollapse);
+      js.executeScript("arguments[0].scrollIntoView(true);", element);
+      WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(ReportsSideMenuCollapse));
+      modalElement.click();
+  
+	}
   
 	  
-	  
+  }	  
   
-}
+
 
 

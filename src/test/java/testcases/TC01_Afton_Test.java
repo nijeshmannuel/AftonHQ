@@ -195,7 +195,7 @@ public class TC01_Afton_Test extends BaseClass {
         a.logout_button_1();
         a.logout_button_popup_1();
         
-        driver.close();
+        
         
         softAssert.assertAll();
     }
@@ -212,15 +212,30 @@ public class TC01_Afton_Test extends BaseClass {
         
         //Validate Expand & Collapse
     	b.CollapseExpandClick();
-    	
-    	 Thread.sleep(2000);
-    	
+    	b.ExpandCollapseValidate_1();
+    	Thread.sleep(2000);
     	b.CollapseExpandClick();
+    	b.ExpandCollapseValidate_1();
     	b.CollapseExpandClick();
     	
-    	
-        
+    	//SideMenu collapse- BoxOffice
+        b.BoxOfficeSideMenuCollapse_Cick();
+        String BoxOfficeSideMenuCollapse_Cick11 = a.validatepage();
+        softAssert.assertEquals(BoxOfficeSideMenuCollapse_Cick11, "https://stagingqa-demo.aftontickets.com/client/boxoffice", "Box Office Collapse URL is Different");
+        driver. navigate().back();
        
+        //SideMenu Collapse - Marketing Tools
+        b.MarketingToolsSideMenuCollapse_Cick();
+        String MarketingToolsSideMenu_Cick11 = a.validatepage();
+        softAssert.assertEquals(MarketingToolsSideMenu_Cick11, "https://stagingqa-demo.aftontickets.com/client/app/reward-program", "Marketing Tools Collapse URL is Different");
+        driver. navigate().back();
+        
+        
+        //SideMenu Collapse- Reports
+        b.ReportSideMenuCollapse_Cick();
+        String ReportSideMenuCollapse_Cick11 = a.validatepage();
+        softAssert.assertEquals(ReportSideMenuCollapse_Cick11, "https://stagingqa-demo.aftontickets.com/client/reports", "Reports URL Collapse URL is Different");
+        driver. navigate().back();
         
         
         
